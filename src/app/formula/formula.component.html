@@ -1,0 +1,18 @@
+<div class="container">
+<form #f="ngForm" (ngSubmit)="guardar(f)" novalidate >
+    <div class="form-group">
+      <label for="exampleInputEmail1">Cedula</label>
+      <input name="cedula"  [(ngModel)]="usuario.Cedula" required #cedula="ngModel" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="cedula">
+      
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Nombres y Apelldios</label>
+      <input name="nombre" [(ngModel)]="usuario.Nombre" requided #nombre="ngModel" type="text" class="form-control" id="exampleInputPassword1" placeholder="nombres">
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</div>
