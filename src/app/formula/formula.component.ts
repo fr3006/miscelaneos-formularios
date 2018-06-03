@@ -19,6 +19,5 @@ usuario: Object = {
   guardar(f: NgForm) {
     console.log(this.usuario);
     console.log(f);
-    
-   }
+  }
 }
