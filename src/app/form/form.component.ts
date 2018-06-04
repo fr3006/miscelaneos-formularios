@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm, Form } from '@angular/forms';
+import { ListaPersonasService } from '../services/lista-personas.service';
+import { Persona } from '../persona';
 
 @Component({
   selector: 'app-form',
@@ -7,12 +9,13 @@ import { NgForm, Form } from '@angular/forms';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+public personas: Array<any>;
 usuario: Object =
 {
-  cedula: 8009999,
-  nombre: 'Yo yo yo',
-  pais: '1',
-  sexo: 'Masculino',
+  cedula: 80093134,
+  nombre: 'Fernando Rodriguez',
+  pais: 'Colombia',
+  genero: 'Masculino',
   acepta: false
 };
 paises = [
@@ -30,11 +33,21 @@ paises = [
 }
 ];
 genero: string[] = ['Masculino', 'Femenino'];
-  constructor() { }
+  constructor(public _listadopersona: ListaPersonasService
+            ) { }
 
   ngOnInit() {
+   // this.personas = this._listadopersona.getPersona();
+   // console.log(this.personas);
+  this.personas = this._listadopersona.getPersona();
+  console.log(this._listadopersona);
   }
-guardar(f: Form) {
- console.log(f);
+  
+postPersona(datos: Form) {
+  this._listadopersona.guardarService(datos);
+  
+  
+
  }
+ 
 }

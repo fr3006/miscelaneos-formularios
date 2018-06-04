@@ -7,6 +7,7 @@ import { FormulaComponent } from './formula/formula.component';
 
 import { FormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
+import { ListaPersonasService } from './services/lista-personas.service';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { FormComponent } from './form/form.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    ListaPersonasService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

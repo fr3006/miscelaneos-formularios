@@ -1,20 +1,21 @@
+
 <div class="container">
-<form #f="ngForm" (ngSubmit)="guardar(f)" novalidate> 
+<form #datos="ngForm" (ngSubmit)="postPersona(datos)" novalidate> 
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input name="cedula" ngModel required [(ngModel)]="usuario.cedula" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <label for="exampleInputEmail1">Cedula</label>
+    <input name="cedula" ngModel required [(ngModel)]="usuario.cedula" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Cedula">
     
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input name="nombres" ngModel required [(ngModel)]="usuario.nombre"  type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="exampleInputPassword1">Nombres</label>
+    <input name="nombres" ngModel required [(ngModel)]="usuario.nombre"  type="text" class="form-control" id="exampleInputPassword1" placeholder="Nombre">
   </div>
 
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
+    <label for="exampleInputPassword1">Pais</label>
     <select  name="pais" ngModel [(ngModel)]="usuario.pais" class="form-control">
       <option value="">Seleccione</option>
-      <option [value]="pais.codigo"  *ngFor="let pais of paises" > {{ pais.nombre }} </option>
+      <option [value]="pais.nombre"  *ngFor="let pais of paises" > {{ pais.nombre }} </option>
     </select>
   </div>
   <!--<div *ngFor="let gen of genero" class="custom-control custom-radio custom-control-inline">
@@ -47,7 +48,17 @@
   </div>
   <button  class="btn btn-primary">Submit</button>
 </form>
+<tr *ngFor="let l of personas">
+    <td>
+      {{ l.cedula }}
+    </td>
+    <td>
+      {{ l.nombres }}
+    </td>
+    <td class="text-center">
+      {{ l.pais}}
+    </td>    
+  </tr>
+   
+
 </div>
-<pre>
-  {{ usuario | json }}
-</pre>
