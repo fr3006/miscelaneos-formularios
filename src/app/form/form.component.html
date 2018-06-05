@@ -3,12 +3,17 @@
 <form #datos="ngForm" (ngSubmit)="postPersona(datos)" novalidate> 
   <div class="form-group">
     <label for="exampleInputEmail1">Cedula</label>
-    <input name="cedula" ngModel required [(ngModel)]="usuario.cedula" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Cedula">
+    <input name="cedula" ngModel required [(ngModel)]="usuario.cedula" 
+    type="text" class="form-control" id="exampleInputEmail1" 
+    aria-describedby="emailHelp" 
+    placeholder="Cedula">
     
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Nombres</label>
-    <input name="nombres" ngModel required [(ngModel)]="usuario.nombre"  type="text" class="form-control" id="exampleInputPassword1" placeholder="Nombre">
+    <input name="nombres" ngModel required [(ngModel)]="usuario.nombre"  
+    type="text" class="form-control" id="exampleInputPassword1" 
+    placeholder="Nombre">
   </div>
 
   <div class="form-group">
@@ -26,6 +31,7 @@
     class="custom-control-input">
     <label class="custom-control-label">{{ gen }}</label>
   </div>-->
+  <!--CHECKBOX-->
   <div class="form-check"  *ngFor="let gen of genero">
     <input [(ngModel)]="usuario.sexo" 
             name="genero"
@@ -36,8 +42,7 @@
     <label class="form-check-label" for="exampleRadios1">
       {{ gen }}
     </label>
-  </div>  
-  
+  </div>   
   <div class="form-group form-check">
     <input [(ngModel)]="usuario.acepta" 
            name="acepta" 
@@ -48,17 +53,23 @@
   </div>
   <button  class="btn btn-primary">Submit</button>
 </form>
-<tr *ngFor="let l of personas">
-    <td>
+<!--REFREHS DATOS-->
+<table class="table">
+  <thead>
+<tr *ngFor="let l of personas; let i = index ">
+    <td class="text-center"> 
       {{ l.cedula }}
     </td>
-    <td>
+    <td class="text-center"> 
       {{ l.nombres }}
     </td>
-    <td class="text-center">
+     <td class="text-center">
       {{ l.pais}}
-    </td>    
+    </td> 
+    <td class="text-center">
+      <button type="text" (click)="deletePersona(i)" class="btn btn-debug">Eliminar</button>
+      </td>   
   </tr>
-   
-
+</thead>
+</table>
 </div>

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Persona } from '../persona';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -14,5 +13,8 @@ export class ListaPersonasService {
   }
    getPersona() {
        return this._listadopersona;
+   }
+   borrarPersona(index: number) {
+    this._listadopersona.splice(index, 1);
    }
 }

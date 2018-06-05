@@ -18,6 +18,7 @@ usuario: Object =
   genero: 'Masculino',
   acepta: false
 };
+
 paises = [
 {
   codigo : 1,
@@ -33,8 +34,9 @@ paises = [
 }
 ];
 genero: string[] = ['Masculino', 'Femenino'];
-  constructor(public _listadopersona: ListaPersonasService
-            ) { }
+
+constructor(public _listadopersona: ListaPersonasService
+ ) { }
 
   ngOnInit() {
    // this.personas = this._listadopersona.getPersona();
@@ -46,8 +48,8 @@ genero: string[] = ['Masculino', 'Femenino'];
 postPersona(datos: Form) {
   this._listadopersona.guardarService(datos);
   
-  
-
  }
- 
+ deletePersona(index: number) {
+  this._listadopersona.borrarPersona(index);
+}
 }
